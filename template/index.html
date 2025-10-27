@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <style>
+        body {font-family: Arial; text-align: center; background: #f7f7f7;}
+        form {margin-top: 40px;}
+        input, select {margin: 10px; padding: 8px;}
+        button {padding: 10px 20px; background-color: #4CAF50; color: white; border: none;}
+        h2 {color: #333;}
+    </style>
+</head>
+<body>
+    <h1>🏠 House Price Prediction</h1>
+    <form method="POST" action="/predict">
+        <input type="number" name="area" placeholder="Area (sqft)" required><br>
+        <input type="number" name="bedrooms" placeholder="No. of Bedrooms" required><br>
+        <input type="number" name="age" placeholder="House Age (years)" required><br>
+        <select name="location" required>
+            <option value="Downtown">Downtown</option>
+            <option value="Suburb">Suburb</option>
+            <option value="City Center">City Center</option>
+        </select><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
