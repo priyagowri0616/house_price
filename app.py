@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Load trained model
 model = joblib.load('house_price_model.pkl')
 
-@app.route('/')
+@app.route('/', methods =['GET'])
 def home():
     return render_template('index.html')
 
@@ -16,7 +16,7 @@ def home():
 def predict():
     area = float(request.form['area'])
     bedrooms = int(request.form['bedrooms'])
-    location = request.form['location']
+    location = request.form['location'] 
     age = int(request.form['age'])
     
     # Dummy encoding (same as training)
