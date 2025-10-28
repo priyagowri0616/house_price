@@ -12,7 +12,7 @@ model = joblib.load('house_price_model.pkl')
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['GET'])
+@app.route('/predict', methods=['GET', 'HEAD'])
 def predict():
     area = float(request.form['area'])
     bedrooms = int(request.form['bedrooms'])
